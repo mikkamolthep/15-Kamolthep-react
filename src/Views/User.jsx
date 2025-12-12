@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 
 export default function User() {
   const [data, setData] = useState([]);
+  const [error,setError] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [view,setView] = useState(true)
   
   useEffect(() => {
     const fetchData = async() =>{
@@ -18,9 +21,19 @@ export default function User() {
         const result = await response.json();
         setData(result);
       } catch(error) {
-        console.error(error)
+        setError(error)
+      } finally {
+        setLoading(false);
+        console.log("finished")
+      }
     };
-  };
+
+    const handleView = () => {
+      setView(!view);
+      if (view) {
+        console.logz
+      }
+    }
 
     fetchData();
   },[]);
