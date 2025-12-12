@@ -1,30 +1,54 @@
 import { Link } from "react-router-dom";
-import { members } from "../components/MembersData";
+import { useEffect, useState } from "react";
 
 export default function User() {
+  const [data, setData] = useState([]);
+  
+  useEffect(() => {
+    const fetchData = async() =>{
+      try {
+        const response = await fetch(
+          "https://67eca027aa794fb3222e43e2.mockapi.io/members"
+        );
+
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        setData(result);
+      } catch(error) {
+        console.error(error)
+    };
+  };
+
+    fetchData();
+  },[]);
+
+
   return (
-    <div className="min-h-dvh w-screen flex flex-col items-center">
+    <div className="min-h-dvh w-screen flex flex-col items-center bg-gray-100">
       <h1>Generation Thailand</h1>
       <h1>Home-User Section</h1>
       <div className="flex gap-16">
-        <button className="">
+        <button className=" bg-white shadow-lg py-2 px-10 rounded-xl my-5 mx-15">
           <Link to="/user">User Home View</Link>
         </button>
-        <button>
+        <button className=" bg-white shadow-lg py-2 px-10 rounded-xl my-5 mx-15">
           <Link to="/admin">Admin Home View</Link>
         </button>
       </div>
 
       <table>
-        <thead>
+        <thead className="bg-gray-300">
           <tr>
             <th>Name</th>
             <th>Last Name</th>
             <th>Position</th>
           </tr>
         </thead>
-        <tbody>
-          {members.map((m) => (
+        <tbody className="bg-white">
+          {data.map((m) => (
             <tr key={m.id}>
               <td>{m.name}</td>
               <td>{m.lastname}</td>
@@ -33,7 +57,6 @@ export default function User() {
           ))}
         </tbody>
       </table>
-
     </div>
   );
 }

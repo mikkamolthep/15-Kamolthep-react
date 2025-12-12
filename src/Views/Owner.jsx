@@ -1,6 +1,6 @@
 export default function Owner() {
   return (
-    <div className="min-h-dvh flex flex-col items-center">
+    <div className="min-h-dvh flex flex-col items-center bg-gray-100">
       <h1>15_Kamolthep(Mik/มิก)</h1>
       <img src="dark-wolf.png" alt="img-profile" width={200} className="m-5"/>
       <h2 className="m-5 font-bold">Short Biography:</h2>
