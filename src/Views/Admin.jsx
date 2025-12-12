@@ -118,7 +118,7 @@ export default function Admin() {
               <td>{m.lastname}</td>
               <td>{m.position}</td>
               <td >
-                <button className="text-red-500 hover:underline cursor-pointer">Delete</button>
+                <button onClick={()=> deleteMember(m.id)} className="text-red-500 hover:underline cursor-pointer">Delete</button>
               </td>
             </tr>
           ))}
