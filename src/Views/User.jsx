@@ -28,13 +28,6 @@ export default function User() {
       }
     };
 
-    const handleView = () => {
-      setView(!view);
-      if (view) {
-        console.logz
-      }
-    }
-
     fetchData();
   },[]);
 

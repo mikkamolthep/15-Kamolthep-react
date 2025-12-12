@@ -5,7 +5,6 @@ import Owner from "./Views/Owner";
 import User from "./Views/User";
 import Admin from "./Views/Admin";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,10 +15,10 @@ const router = createBrowserRouter([
       </div>
     ),
     children: [
-      {path: "/",element: <Home />},
-      {path: "owner",element: <Owner />},
-      {path: "user",element: <User />},
-      {path: "admin",element: <Admin />}
+      { path: "/", element: <Home /> },
+      { path: "owner", element: <Owner /> },
+      { path: "user", element: <User /> },
+      { path: "admin", element: <Admin /> },
     ],
   },
 ]);

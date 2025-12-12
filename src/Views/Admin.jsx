@@ -40,21 +40,19 @@ export default function Admin() {
     setName("");
     setLastname("");
     setPosition("");
-
   };
 
-  const deleteMember = async() => {
-    try { 
-      const response = await fetch(membersAPI,{method:"DELETE"});
-    
-    if (!response.ok) {
-      throw new Error("Fail")
-    } 
-    
-  } catch(error) {
-      console.error("comfirm?",error)
+  const deleteMember = async () => {
+    try {
+      const response = await fetch(membersAPI, { method: "DELETE" });
+
+      if (!response.ok) {
+        throw new Error("Fail");
+      }
+    } catch (error) {
+      console.error("comfirm?", error);
     }
-  }
+  };
 
   return (
     <div className="min-h-dvh w-screen flex flex-col items-center bg-gray-100">
@@ -117,8 +115,13 @@ export default function Admin() {
               <td>{m.name}</td>
               <td>{m.lastname}</td>
               <td>{m.position}</td>
-              <td >
-                <button onClick={()=> deleteMember(m.id)} className="text-red-500 hover:underline cursor-pointer">Delete</button>
+              <td>
+                <button
+                  onClick={() => deleteMember(m.id)}
+                  className="text-red-500 hover:underline cursor-pointer"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
