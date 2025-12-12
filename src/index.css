@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+button {
+  background-color: rgb(221, 220, 220);
+  padding: 10px 20px;
+  margin: 25px 40px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 3px;
+}
